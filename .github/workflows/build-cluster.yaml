@@ -1,0 +1,32 @@
+name: Create K3d Cluster
+
+on:
+  push:
+    branches: 
+      - 'main'
+    paths:
+      - 'cluster/**' 
+
+# env:
+#   REGISTRY: docker.io
+#   IMAGE_NAME: fav-cfc-goals
+
+jobs:
+  build-k3d-cluster:
+    name: Create the k3d Cluster
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install K3d
+      shell: bash
+      run: |
+        wget -q -O - https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+        k3d --version
+
+    - name: Create Cluster Using Config
+      shell: bash
+      run: |
+        k3d cluster create -c cluster/abdullahi-gitops.yaml
