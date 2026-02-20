@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-app-of-apps
+  namespace: argo-cd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/abdullahishs/k3d-gitops/argocd/  
+    targetRevision: testing-branch
+    path: apps
+    directory:
+      recurse: true
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argo-cd
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

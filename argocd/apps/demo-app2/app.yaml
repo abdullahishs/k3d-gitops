@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-app2
+  namespace: argo-cd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/abdullahishs/k3d-gitops/argocd/  
+    targetRevision: testing-branch
+    path: apps/demo-app2/demo-of-demoapp2/manifests
+
+  destination:
+    server: https://kubernetes.default.svc
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
