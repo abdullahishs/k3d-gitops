@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/abdullahishs/k3d-gitops/  
     targetRevision: testing-branch
-    path: apps
+    path: argocd/apps
     directory:
       recurse: true
 

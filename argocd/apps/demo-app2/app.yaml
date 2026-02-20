@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/abdullahishs/k3d-gitops/  
     targetRevision: testing-branch
-    path: argocd/apps/demo-app2/demo-of-demoapp2/manifests
+    path: argocd/apps/demo-app2/manifests
 
   destination:
     server: https://kubernetes.default.svc
