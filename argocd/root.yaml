@@ -7,7 +7,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/abdullahishs/k3d-gitops/argocd/  
+    repoURL: https://github.com/abdullahishs/k3d-gitops/  
     targetRevision: testing-branch
     path: apps
     directory:
